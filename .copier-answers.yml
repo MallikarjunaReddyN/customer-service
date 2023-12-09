@@ -1,0 +1,20 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+CI: 'Yes'
+CI_type: Github Actions
+_commit: 30dafdc
+_src_path: https://github.com/MallikarjunaReddyN/copier-springboot.git
+aks: 'No'
+container_registery: DockerHub
+created_by: Malli
+docker: 'Yes'
+entity: Customer
+group_id: com.malli
+is_db_required: 'No'
+project: Maven
+project_description: This is a Spring Boot Customer Microservice
+project_name: Customer Service
+project_package: customerservice
+sca: 'Yes'
+sca_type: SonarCloud
+server_port: 3828
+version: 0.0.1

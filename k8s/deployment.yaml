@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service
+  labels:
+    app: customerservice
+spec:
+  replicas: 2
+  strategy:
+     type: RollingUpdate
+  selector:
+    matchLabels:
+      app: customerservice
+  template:
+    metadata:
+      labels:
+        app: customerservice
+    spec:
+      containers:
+        - name: customerservice
+          image: ##REGISTRY_USERNAME##/customer-service:##TAG##
+          livenessProbe:
+            httpGet:
+              port: 3828
+              path: /customer-service/v1/actuator/health/liveness
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              port: 3828
+              path: /customer-service/v1/actuator/health/readiness
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          ports:
+            - containerPort: 3828

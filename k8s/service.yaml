@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: customer-service
+  labels:
+    app: customerservice
+spec:
+  type: ClusterIP
+  ports:
+    - name: app-port
+      port: 3828
+      targetPort: 3828
+      protocol: TCP
+  selector:
+     app: customerservice
